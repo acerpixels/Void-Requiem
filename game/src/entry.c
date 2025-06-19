@@ -14,7 +14,14 @@ SDL_AppResult SDL_AppInit(void **appstate, int argc, char *argv[])
 		return SDL_APP_FAILURE;
 	}
 
-	if (!SDL_CreateWindowAndRenderer("Void Requiem", 640, 480, SDL_WINDOW_MAXIMIZED, &g_programData.window, &g_programData.renderer))
+	if (!SDL_CreateWindowAndRenderer(
+				GAME_WINDOW_TITLE,
+				GAME_WINDOW_WIDTH,
+				GAME_WINDOW_HEIGHT,
+				SDL_WINDOW_MAXIMIZED,
+				&g_programData.window,
+				&g_programData.renderer)
+			)
 	{
 		SDL_Log("Couldn't create window & renderer: %s", SDL_GetError());
 		return SDL_APP_FAILURE;
