@@ -10,3 +10,6 @@ typedef struct _program_data
 	SDL_Renderer   *renderer;
 }
 ProgramData;
+
+// TODO: implement Scene Struct
+// TODO: Implement GameData Struct
