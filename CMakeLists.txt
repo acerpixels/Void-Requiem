@@ -29,5 +29,5 @@ set (CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
 include (cmake/AddResources.cmake)
 
 # Subdirectories
-#add_subdirectory(vendor)
+add_subdirectory(vendor)
 add_subdirectory(game)
