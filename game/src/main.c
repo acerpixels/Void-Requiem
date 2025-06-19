@@ -1,8 +1,7 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include <SDL3/SDL.h>
 
 int main(int argc, char** argv)
 {
-	printf("VOID REQUIEM\n");
-	return EXIT_SUCCESS;
+	SDL_Log("VOID REQUIEM\n");
+	return 0;
 }
