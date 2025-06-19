@@ -2,6 +2,7 @@
 #include <SDL3/SDL_main.h>
 #include "structs.h"
 
+ProgramData g_programData;
 
 /* This function runs once at startup. */
 SDL_AppResult SDL_AppInit(void **appstate, int argc, char *argv[])
