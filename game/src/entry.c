@@ -2,9 +2,6 @@
 #include <SDL3/SDL_main.h>
 #include "structs.h"
 
-/* We will use this renderer to draw into this window every frame. */
-static SDL_Window *window = NULL;
-static SDL_Renderer *renderer = NULL;
 
 /* This function runs once at startup. */
 SDL_AppResult SDL_AppInit(void **appstate, int argc, char *argv[])
