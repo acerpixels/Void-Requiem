@@ -1,0 +1,7 @@
+# Ignore Directories
+build-linux/
+build-windows/
+
+# Ignore files
+compile_commands.json
+.vimspector.json
