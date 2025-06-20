@@ -9,25 +9,6 @@ ProgramData g_programData;
 /* This function runs once at startup. */
 SDL_AppResult SDL_AppInit(void **appstate, int argc, char *argv[])
 {
-	if (!SDL_Init(SDL_INIT_VIDEO))
-	{
-		SDL_Log("Couldn't initialize SDL: %s", SDL_GetError());
-		return SDL_APP_FAILURE;
-	}
-
-	if (!SDL_CreateWindowAndRenderer(
-				GAME_WINDOW_TITLE,
-				GAME_WINDOW_WIDTH,
-				GAME_WINDOW_HEIGHT,
-				SDL_WINDOW_MAXIMIZED,
-				&g_programData.window,
-				&g_programData.renderer
-				)
-			)
-	{
-		SDL_Log("Couldn't create window & renderer: %s", SDL_GetError());
-		return SDL_APP_FAILURE;
-	}
 	return SDL_APP_CONTINUE;  /* carry on with the program! */
 }
 
