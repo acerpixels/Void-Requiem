@@ -4,12 +4,12 @@
 
 #include "headers.h"
 
-typedef struct SoftwareData
+typedef struct WindowData
 {
 	SDL_Window     *window;
 	SDL_Renderer   *renderer;
 }
-SoftwareData;
+WindowData;
 
 // TODO: implement Scene Struct
 // TODO: Implement GameData Struct
