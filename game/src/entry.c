@@ -25,9 +25,9 @@ SDL_AppResult SDL_AppEvent(void *appstate, SDL_Event *event)
 /* This function runs once per frame, and is the heart of the program. */
 SDL_AppResult SDL_AppIterate(void *appstate)
 {
-	SDL_SetRenderDrawColor(g_programData.renderer, 0, 0, 0, 255);
-	SDL_RenderClear(g_programData.renderer);
-	SDL_RenderPresent(g_programData.renderer);
+	SDL_SetRenderDrawColor(g_windowData.renderer, 0, 0, 0, 255);
+	SDL_RenderClear(g_windowData.renderer);
+	SDL_RenderPresent(g_windowData.renderer);
 	return SDL_APP_CONTINUE;  /* carry on with the program! */
 }
 
