@@ -1,6 +1,6 @@
 #include "init.h"
 
-BOOL init_program(ProgramData* programData)
+BOOL init_program(WindowData* windowData)
 {
 	if (!SDL_Init(SDL_INIT_VIDEO))
 	{
@@ -13,8 +13,8 @@ BOOL init_program(ProgramData* programData)
 				GAME_WINDOW_WIDTH,
 				GAME_WINDOW_HEIGHT,
 				SDL_WINDOW_MAXIMIZED,
-				&programData->window,
-				&programData->renderer
+				&windowData->window,
+				&windowData->renderer
 				)
 		)
 	{

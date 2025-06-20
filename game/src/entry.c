@@ -4,7 +4,7 @@
 #include "structs.h"
 #include "definitions.h"
 
-ProgramData g_programData;
+WindowData g_windowData;
 
 /* This function runs once at startup. */
 SDL_AppResult SDL_AppInit(void **appstate, int argc, char *argv[])

@@ -4,4 +4,4 @@
 #include "definitions.h"
 #include "structs.h"
 
-BOOL init_program(ProgramData* programData);
+BOOL init_program(WindowData* windowData);
