@@ -1,14 +1,17 @@
 #define SDL_MAIN_USE_CALLBACKS 1  /* use the callbacks instead of main() */
 #include <SDL3/SDL_main.h>
 
-#include "structs.h"
-#include "definitions.h"
+#include "init.h"
 
 WindowData g_windowData;
 
 /* This function runs once at startup. */
 SDL_AppResult SDL_AppInit(void **appstate, int argc, char *argv[])
 {
+	if (!init_windowData(&g_windowData))
+	{
+		return SDL_APP_FAILURE;
+	}
 	return SDL_APP_CONTINUE;  /* carry on with the program! */
 }
 
