@@ -21,7 +21,8 @@ SDL_AppResult SDL_AppInit(void **appstate, int argc, char *argv[])
 				GAME_WINDOW_HEIGHT,
 				SDL_WINDOW_MAXIMIZED,
 				&g_programData.window,
-				&g_programData.renderer)
+				&g_programData.renderer
+				)
 			)
 	{
 		SDL_Log("Couldn't create window & renderer: %s", SDL_GetError());
