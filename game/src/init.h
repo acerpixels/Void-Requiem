@@ -4,4 +4,4 @@
 #include "definitions.h"
 #include "structs.h"
 
-SDL_FORCE_INLINE BOOL init_program(ProgramData* programData);
+BOOL init_program(ProgramData* programData);
