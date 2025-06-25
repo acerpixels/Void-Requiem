@@ -4,4 +4,4 @@
 #include "definitions.h"
 #include "structs.h"
 
-BOOL init_windowData(WindowData* windowData);
+bool init_windowData(WindowData* windowData);

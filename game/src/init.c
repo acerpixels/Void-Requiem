@@ -1,11 +1,11 @@
 #include "init.h"
 
-BOOL init_windowData(WindowData* windowData)
+bool init_windowData(WindowData* windowData)
 {
 	if (!SDL_Init(SDL_INIT_VIDEO))
 	{
 		SDL_Log("Couldn't initialize SDL: %s", SDL_GetError());
-		return FALSE;
+		return false;
 	}
 
 	if (!SDL_CreateWindowAndRenderer(
@@ -19,7 +19,7 @@ BOOL init_windowData(WindowData* windowData)
 		)
 	{
 		SDL_Log("Couldn't create window & renderer: %s", SDL_GetError());
-		return FALSE;
+		return false;
 	}
-	return TRUE;
+	return true;
 }
