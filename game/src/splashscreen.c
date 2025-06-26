@@ -19,6 +19,8 @@ void init_splashscreen()
 
 	RGBA new_bgcolor = { 10, 10, 10, 255 }; // 0A0A0A in hex
 	g_gameData.scene.backgroundCol = new_bgcolor;
+
+	g_gameData.scene.init();
 }
 
 static void init()
