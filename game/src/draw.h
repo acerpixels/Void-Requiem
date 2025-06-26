@@ -4,4 +4,4 @@
 #include "structs.h"
 #include "definitions.h"
 
-void render(WindowData* windowData);
+void draw(WindowData* windowData);

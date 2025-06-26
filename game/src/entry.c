@@ -2,7 +2,7 @@
 #include <SDL3/SDL_main.h>
 
 #include "init.h"
-#include "render.h"
+#include "draw.h"
 
 WindowData g_windowData;
 
@@ -29,7 +29,7 @@ SDL_AppResult SDL_AppEvent(void *appstate, SDL_Event *event)
 /* This function runs once per frame, and is the heart of the program. */
 SDL_AppResult SDL_AppIterate(void *appstate)
 {
-	render(&g_windowData);
+	draw(&g_windowData);
 	return SDL_APP_CONTINUE;  /* carry on with the program! */
 }
 
