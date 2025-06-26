@@ -4,9 +4,9 @@
 extern GameData g_gameData;
 
 static void init();
-static void input();
+static void input(SDL_Event *event);
 static void update();
-static void draw();
+static void draw(SDL_Renderer *renderer);
 static void cleanup();
 
 void init_splashscreen()
@@ -23,7 +23,7 @@ static void init()
 	// TODO: init
 }
 
-static void input()
+static void input(SDL_Event *event)
 {
 	// TODO: input
 }
@@ -33,7 +33,7 @@ static void update()
 	// TODO: update
 }
 
-static void draw()
+static void draw(SDL_Renderer *renderer)
 {
 	// TODO: draw
 }
