@@ -39,6 +39,7 @@ SDL_AppResult SDL_AppEvent(void *appstate, SDL_Event *event)
 /* This function runs once per frame, and is the heart of the program. */
 SDL_AppResult SDL_AppIterate(void *appstate)
 {
+	g_gameData.scene.update();
 	draw(&s_windowData);
 	return SDL_APP_CONTINUE;  /* carry on with the program! */
 }
