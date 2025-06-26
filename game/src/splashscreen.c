@@ -16,6 +16,9 @@ void init_splashscreen()
 	g_gameData.scene.update  = update;
 	g_gameData.scene.draw    = draw;
 	g_gameData.scene.cleanup = cleanup;
+
+	RGBA new_bgcolor = { 10, 10, 10, 255 }; // 0A0A0A in hex
+	g_gameData.scene.backgroundCol = new_bgcolor;
 }
 
 static void init()
@@ -40,6 +43,5 @@ static void draw(SDL_Renderer *renderer)
 
 static void cleanup()
 {
-	// TODO: cleanup
 }
 
