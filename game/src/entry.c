@@ -6,12 +6,14 @@
 
 /* GLOBAL VARIABLE */
 GameData g_gameData;
-WindowData g_windowData;
+
+/* LOCAL VARIABLE */
+static WindowData s_windowData;
 
 /* This function runs once at startup. */
 SDL_AppResult SDL_AppInit(void **appstate, int argc, char *argv[])
 {
-	if (!init_windowData(&g_windowData))
+	if (!init_windowData(&s_windowData))
 	{
 		return SDL_APP_FAILURE;
 	}
@@ -34,7 +36,7 @@ SDL_AppResult SDL_AppEvent(void *appstate, SDL_Event *event)
 /* This function runs once per frame, and is the heart of the program. */
 SDL_AppResult SDL_AppIterate(void *appstate)
 {
-	draw(&g_windowData);
+	draw(&s_windowData);
 	return SDL_APP_CONTINUE;  /* carry on with the program! */
 }
 
