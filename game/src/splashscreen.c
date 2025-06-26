@@ -11,6 +11,9 @@ static void cleanup();
 
 void init_splashscreen()
 {
+	if (g_gameData.scene.cleanup != NULL)
+		g_gameData.scene.cleanup();
+	
 	g_gameData.scene.init    = init;
 	g_gameData.scene.input   = input;
 	g_gameData.scene.update  = update;
