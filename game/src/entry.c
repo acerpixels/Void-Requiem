@@ -4,6 +4,8 @@
 #include "init.h"
 #include "draw.h"
 
+/* GLOBAL VARIABLE */
+GameData g_gameData;
 WindowData g_windowData;
 
 /* This function runs once at startup. */
