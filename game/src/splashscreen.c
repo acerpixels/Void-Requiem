@@ -11,7 +11,11 @@ static void cleanup();
 
 void init_splashscreen()
 {
-	// TODO
+	g_gameData.scene.init    = init;
+	g_gameData.scene.input   = input;
+	g_gameData.scene.update  = update;
+	g_gameData.scene.draw    = draw;
+	g_gameData.scene.cleanup = cleanup;
 }
 
 static void init()
