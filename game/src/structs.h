@@ -20,4 +20,10 @@ typedef struct Scene
 	void (*cleanup)();
 }
 Scene;
+
+typedef struct GameData
+{
+	Scene scene;
+}
+GameData;
 // TODO: Implement GameData Struct
