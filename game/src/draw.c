@@ -5,7 +5,8 @@ extern GameData g_gameData;
 
 void draw(WindowData* windowData)
 {
-	SDL_SetRenderDrawColor(windowData->renderer, 0, 0, 0, 255);
+	RGBA bgColor = g_gameData.scene.backgroundCol;
+	SDL_SetRenderDrawColor(windowData->renderer, bgColor.r, bgColor.g, bgColor.b, bgColor.a);
 	SDL_RenderClear(windowData->renderer);
 	SDL_RenderPresent(windowData->renderer);
 }
