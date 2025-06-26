@@ -15,9 +15,7 @@ static WindowData s_windowData;
 SDL_AppResult SDL_AppInit(void **appstate, int argc, char *argv[])
 {
 	if (!init_windowData(&s_windowData))
-	{
 		return SDL_APP_FAILURE;
-	}
 	
 	init_splashscreen();
 	SDL_assert(g_gameData.scene.init != NULL);
@@ -29,9 +27,7 @@ SDL_AppResult SDL_AppInit(void **appstate, int argc, char *argv[])
 SDL_AppResult SDL_AppEvent(void *appstate, SDL_Event *event)
 {
 	if (event->type == SDL_EVENT_QUIT)
-	{
 		return SDL_APP_SUCCESS;  /* end the program, reporting success to the OS. */
-	}
 
 	g_gameData.scene.input(event);
 
