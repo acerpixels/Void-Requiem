@@ -11,15 +11,8 @@ BUILD_TYPE=$2
 GEN_ENABLED=$3 # for vim intellisense (OPTIONAL)
 
 if [[ -z "$PLATFORM_TYPE" || -z "$BUILD_TYPE" ]]; then
-	echo -e "Error Occured: One of the command's parameter is empty!" >&2
-	echo -e "Usage: ./build.sh <PLATFORM_TYPE> <BUILD_TYPE>
-	PLATFORM_TYPE
-	\t- WINDOWS
-	\t- LINUX
-	BUILD_TYPE
-	\t- DEBUG
-	\t- RELEASE"
-	exit 1
+	PLATFORM_TYPE=LINUX
+	BUILD_TYPE=DEBUG
 fi
 
 case "$BUILD_TYPE" in
