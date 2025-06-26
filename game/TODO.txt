@@ -1,13 +1,13 @@
 ------------------------------------------------------------
 TODO LIST:
-    1. implement the scene management
-        a. implement the scene delegate struct
+    1. implement the scene management (DONE)
+        a. implement the scene delegate struct (DONE)
             i.   it holds the function pointer for init
             ii.  it holds the function pointer for update
             iii. it holds the function pointer for input
             iv.  it holds the function pointer for cleanup
             v.   it holds the function pointer for rendering
-        b. implement the game data struct which holds scene delegate
-        c. modify entry.c (ALSO: put assertion just in case for no segmentation fault)
+        b. implement the game data struct which holds scene delegate (DONE)
+        c. modify entry.c (ALSO: put assertion just in case for no segmentation fault) (DONE)
 
     2. create a function for rendering sprites
