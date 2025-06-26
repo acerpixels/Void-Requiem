@@ -15,6 +15,9 @@ SDL_AppResult SDL_AppInit(void **appstate, int argc, char *argv[])
 	{
 		return SDL_APP_FAILURE;
 	}
+	
+	SDL_assert(g_gameData.scene.init != NULL);
+	
 	return SDL_APP_CONTINUE;  /* carry on with the program! */
 }
 
