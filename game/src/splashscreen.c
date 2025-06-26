@@ -28,7 +28,7 @@ void init_splashscreen()
 
 static void init()
 {
-	// TODO: init
+	SDL_Log("[LOG]: splashscreen initialized!\n");
 }
 
 static void input(SDL_Event *event)
@@ -48,5 +48,6 @@ static void draw(SDL_Renderer *renderer)
 
 static void cleanup()
 {
+	SDL_Log("[LOG]: splashscreen cleaned!\n");
 }
 
