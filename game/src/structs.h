@@ -22,6 +22,8 @@ RGBA;
 
 typedef struct Scene
 {
+	RGBA backgroundCol;
+
 	void (*init)();
 	void (*input)(SDL_Event *event);
 	void (*update)();
