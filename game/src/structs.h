@@ -11,5 +11,13 @@ typedef struct WindowData
 }
 WindowData;
 
-// TODO: implement Scene Struct
+typedef struct Scene
+{
+	void (*init)();
+	void (*input)();
+	void (*update)();
+	void (*draw)();
+	void (*cleanup)();
+}
+Scene;
 // TODO: Implement GameData Struct
