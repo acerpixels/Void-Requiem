@@ -13,3 +13,29 @@ void init_splashscreen()
 {
 	// TODO
 }
+
+static void init()
+{
+	// TODO: init
+}
+
+static void input()
+{
+	// TODO: input
+}
+
+static void update()
+{
+	// TODO: update
+}
+
+static void draw()
+{
+	// TODO: draw
+}
+
+static void cleanup()
+{
+	// TODO: cleanup
+}
+
