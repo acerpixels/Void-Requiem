@@ -16,7 +16,7 @@ typedef struct Scene
 	void (*init)();
 	void (*input)();
 	void (*update)();
-	void (*draw)();
+	void (*draw)(SDL_Renderer *renderer);
 	void (*cleanup)();
 }
 Scene;
