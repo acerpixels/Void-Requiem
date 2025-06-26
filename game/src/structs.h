@@ -14,7 +14,7 @@ WindowData;
 typedef struct Scene
 {
 	void (*init)();
-	void (*input)();
+	void (*input)(SDL_Event *event);
 	void (*update)();
 	void (*draw)(SDL_Renderer *renderer);
 	void (*cleanup)();
