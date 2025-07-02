@@ -3,6 +3,12 @@ set(SDL_EXAMPLES OFF)
 
 # Subdirectories:
 add_subdirectory(SDL EXCLUDE_FROM_ALL)
+
+set (SDLIMAGE_VENDORED ON)
+set (SDLIMAGE_AVIF OFF)
+set (SDLIMAGE_BMP OFF)
+set (SDLIMAGE_JPEG ON)
+set (SDLIMAGE_WEBP OFF)
 add_subdirectory(SDL_image EXCLUDE_FROM_ALL)
 
 # Target:
