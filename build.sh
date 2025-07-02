@@ -8,11 +8,13 @@
 # Script Parameters:
 PLATFORM_TYPE=$1
 BUILD_TYPE=$2
-GEN_ENABLED=$3 # for vim intellisense (OPTIONAL)
+BUILD_SYSTEM=$3
+GEN_ENABLED=$4 # for vim intellisense (OPTIONAL)
 
-if [[ -z "$PLATFORM_TYPE" || -z "$BUILD_TYPE" ]]; then
+if [[ -z "$PLATFORM_TYPE" || -z "$BUILD_TYPE" || -z "$BUILD_SYSTEM" ]]; then
 	PLATFORM_TYPE=LINUX
 	BUILD_TYPE=DEBUG
+	BUILD_SYSTEM=NINJA
 fi
 
 case "$BUILD_TYPE" in
@@ -21,6 +23,20 @@ case "$BUILD_TYPE" in
 		;;
 	DEBUG)
 		CMAKE_BUILD_TYPE="-DCMAKE_BUILD_TYPE=Debug"
+		;;
+	*)
+		echo "Error Occured: Unspecified build type" >&2
+		exit 1
+		;;
+esac
+
+case "$BUILD_SYSTEM" in
+	NINJA)
+		CMAKE_BUILD_SYSTEM="-G Ninja"
+		BUILD_SYSTEM_COMMAND=ninja
+		;;
+	MAKEFILE)
+		BUILD_SYSTEM_COMMAND=make
 		;;
 	*)
 		echo "Error Occured: Unspecified build type" >&2
@@ -44,7 +60,6 @@ case "$PLATFORM_TYPE" in
 			BEAR_COMMAND="bear --"
 		fi
 		CMAKE_COMMAND=cmake
-		MAKE_COMMAND=ninja
 		BUILD_DIR="build-linux/"
 		;;
 	*)
@@ -63,8 +78,8 @@ if [[ ! -x $(command -v "$CMAKE_COMMAND") ]]; then
 	exit 1
 fi
 
-if [[ ! -x $(command -v "$MAKE_COMMAND") ]]; then
-	echo "Error Occured: $MAKE_COMMAND command could not be found" >&2
+if [[ ! -x $(command -v "$BUILD_SYSTEM_COMMAND") ]]; then
+	echo "Error Occured: $BUILD_SYSTEM_COMMAND command could not be found" >&2
 	exit 1
 fi
 
@@ -81,8 +96,8 @@ fi
 cd "$BUILD_DIR"
 
 # Execute Commands
-$CMAKE_COMMAND $CMAKE_BUILD_TYPE -G Ninja ..
-$BEAR_COMMAND $MAKE_COMMAND
+$CMAKE_COMMAND $CMAKE_BUILD_TYPE $CMAKE_BUILD_SYSTEM ..
+$BEAR_COMMAND $BUILD_SYSTEM_COMMAND
 
 if [[ $? -ne 0 ]]; then
 	if [[ -n "$BEAR_COMMAND" ]]; then
