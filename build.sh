@@ -31,7 +31,6 @@ esac
 case "$PLATFORM_TYPE" in
 	WINDOWS)
 		CMAKE_COMMAND=x86_64-w64-mingw32-cmake
-		MAKE_COMMAND=x86_64-w64-mingw32-make
 		BUILD_DIR="build-windows/"
 		;;
 	LINUX)
@@ -45,7 +44,7 @@ case "$PLATFORM_TYPE" in
 			BEAR_COMMAND="bear --"
 		fi
 		CMAKE_COMMAND=cmake
-		MAKE_COMMAND=make
+		MAKE_COMMAND=ninja
 		BUILD_DIR="build-linux/"
 		;;
 	*)
@@ -60,12 +59,12 @@ esac
 ##################################################
 
 if [[ ! -x $(command -v "$CMAKE_COMMAND") ]]; then
-	echo "Error Occured: cmake command could not be found" >&2
+	echo "Error Occured: $CMAKE_COMMAND command could not be found" >&2
 	exit 1
 fi
 
 if [[ ! -x $(command -v "$MAKE_COMMAND") ]]; then
-	echo "Error Occured: make command could not be found" >&2
+	echo "Error Occured: $MAKE_COMMAND command could not be found" >&2
 	exit 1
 fi
 
@@ -82,7 +81,7 @@ fi
 cd "$BUILD_DIR"
 
 # Execute Commands
-$CMAKE_COMMAND $CMAKE_BUILD_TYPE ..
+$CMAKE_COMMAND $CMAKE_BUILD_TYPE -G Ninja ..
 $BEAR_COMMAND $MAKE_COMMAND
 
 if [[ $? -ne 0 ]]; then
