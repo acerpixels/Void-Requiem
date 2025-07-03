@@ -1,7 +1,7 @@
 #define SDL_MAIN_USE_CALLBACKS 1  /* use the callbacks instead of main() */
 #include <SDL3/SDL_main.h>
 
-#include "init.h"
+#include "Window/window_manage.h"
 #include "splashscreen.h"
 
 /* GLOBAL VARIABLE */
