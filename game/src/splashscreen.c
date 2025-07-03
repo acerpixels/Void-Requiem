@@ -20,7 +20,7 @@ void init_splashscreen()
 	g_gameData.scene.draw    = draw;
 	g_gameData.scene.cleanup = cleanup;
 
-	RGBA new_bgcolor = { 10, 10, 10, 255 }; // 0A0A0A in hex
+	SDL_Color new_bgcolor = { 10, 10, 10, 255 }; // 0A0A0A in hex
 	g_gameData.scene.backgroundCol = new_bgcolor;
 
 	g_gameData.scene.init();

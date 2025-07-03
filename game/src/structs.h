@@ -11,18 +11,9 @@ typedef struct WindowData
 }
 WindowData;
 
-typedef struct RGBA
-{
-	Uint8 r;
-	Uint8 g;
-	Uint8 b;
-	Uint8 a;
-}
-RGBA;
-
 typedef struct Scene
 {
-	RGBA backgroundCol;
+	SDL_Color backgroundCol;
 
 	void (*init)();
 	void (*input)(SDL_Event *event);
