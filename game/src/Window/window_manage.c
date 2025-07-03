@@ -1,4 +1,4 @@
-#include "init.h"
+#include "window_manage.h"
 
 bool __init_windowData(__window_data* windowData)
 {

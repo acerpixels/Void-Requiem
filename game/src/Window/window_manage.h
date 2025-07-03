@@ -1,8 +1,8 @@
 #pragma once
 
-#include "headers.h"
-#include "definitions.h"
-#include "structs.h"
+#include "../headers.h"
+#include "../definitions.h"
+#include "../structs.h"
 
 typedef struct __window_data
 {
