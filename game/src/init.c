@@ -1,6 +1,6 @@
 #include "init.h"
 
-bool init_windowData(WindowData* windowData)
+bool __init_windowData(__window_data* windowData)
 {
 	if (!SDL_Init(SDL_INIT_VIDEO))
 	{

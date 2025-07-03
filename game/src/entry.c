@@ -9,12 +9,12 @@
 GameData g_gameData;
 
 /* LOCAL VARIABLE */
-static WindowData s_windowData;
+static __window_data s_windowData;
 
 /* This function runs once at startup. */
 SDL_AppResult SDL_AppInit(void **appstate, int argc, char *argv[])
 {
-	if (!init_windowData(&s_windowData))
+	if (!__init_windowData(&s_windowData))
 		return SDL_APP_FAILURE;
 	
 	init_splashscreen();

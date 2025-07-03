@@ -4,11 +4,10 @@
 #include "definitions.h"
 #include "structs.h"
 
-typedef struct WindowData
+typedef struct __window_data
 {
-	SDL_Window     *window;
-	SDL_Renderer   *renderer;
-}
-WindowData;
+	SDL_Renderer*   renderer;
+	SDL_Window*     window;
+} __window_data;
 
-bool init_windowData(WindowData* windowData);
+bool __init_windowData(__window_data* windowData);
