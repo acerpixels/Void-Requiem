@@ -11,3 +11,4 @@ typedef struct __window_data
 } __window_data;
 
 bool __init_windowData(__window_data* windowData);
+void __draw(__window_data* windowData, GameData* gameData);
