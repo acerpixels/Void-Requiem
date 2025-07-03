@@ -4,13 +4,6 @@
 
 #include "headers.h"
 
-typedef struct WindowData
-{
-	SDL_Window     *window;
-	SDL_Renderer   *renderer;
-}
-WindowData;
-
 typedef struct Scene
 {
 	SDL_Color backgroundCol;
