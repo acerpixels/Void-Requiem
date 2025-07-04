@@ -12,9 +12,3 @@ typedef struct Scene
 	void (*cleanup)();
 }
 Scene;
-
-typedef struct GameData
-{
-	Scene scene;
-}
-GameData;
