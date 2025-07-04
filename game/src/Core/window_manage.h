@@ -1,8 +1,6 @@
 #pragma once
 
 #include "headers.h"
-#include "../definitions.h"
-#include "../structs.h"
 #include "window_data.h"
 #include "application.h"
 #include "game_config.h"
