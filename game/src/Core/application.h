@@ -5,7 +5,7 @@ typedef struct __app_config
 	int width;
 	int height;
 	void (*initial_scene)();
-	const char* app_title;
+	char app_title[64];
 }
 App_Config;
 
