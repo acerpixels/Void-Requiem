@@ -1,13 +1,13 @@
 #include "Core/entry.h"
 #include "splashscreen.h"
 
-void configure_application(App_Config *app_config)
+void configure_application(Game_Config *game_config)
 {
-	app_config->height = GAME_WINDOW_HEIGHT;
-	app_config->width  = GAME_WINDOW_WIDTH;
-	app_config->initial_scene = init_splashscreen;
+	game_config->height = GAME_WINDOW_HEIGHT;
+	game_config->width  = GAME_WINDOW_WIDTH;
+	game_config->initial_scene = init_splashscreen;
 
 	const char* game_window_title = GAME_WINDOW_TITLE;
 
-	strncpy(app_config->app_title, game_window_title, 64);
+	strncpy(game_config->app_title, game_window_title, 64);
 }
