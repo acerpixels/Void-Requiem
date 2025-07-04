@@ -5,7 +5,7 @@
 #include "window_manage.h"
 
 /* GLOBAL VARIABLE */
-GameData g_gameData;
+Scene g_currentScene;
 
 /* LOCAL VARIABLE */
 static __window_data s_windowData;
@@ -19,7 +19,7 @@ SDL_AppResult SDL_AppInit(void **appstate, int argc, char *argv[])
 	if (!__init_windowData(&s_windowData, game_config))
 		return SDL_APP_FAILURE;
 	
-	SDL_assert(g_gameData.scene.init != NULL);
+	SDL_assert(g_currentScene.init != NULL);
 	
 	return SDL_APP_CONTINUE;  /* carry on with the program! */
 }
@@ -30,7 +30,7 @@ SDL_AppResult SDL_AppEvent(void *appstate, SDL_Event *event)
 	if (event->type == SDL_EVENT_QUIT)
 		return SDL_APP_SUCCESS;  /* end the program, reporting success to the OS. */
 
-	g_gameData.scene.input(event);
+	g_currentScene.input(event);
 
 	return SDL_APP_CONTINUE;  /* carry on with the program! */
 }
@@ -38,15 +38,13 @@ SDL_AppResult SDL_AppEvent(void *appstate, SDL_Event *event)
 /* This function runs once per frame, and is the heart of the program. */
 SDL_AppResult SDL_AppIterate(void *appstate)
 {
-	g_gameData.scene.update();
-	__draw(&s_windowData, &g_gameData);
+	__draw(&s_windowData, &g_currentScene);
 	return SDL_APP_CONTINUE;  /* carry on with the program! */
 }
 
 /* This function runs once at shutdown. */
 void SDL_AppQuit(void *appstate, SDL_AppResult result)
 {
-	g_gameData.scene.cleanup();
 	/* SDL will clean up the window/renderer for us. */
 }
 

@@ -24,13 +24,13 @@ bool __init_windowData(__window_data* windowData, Game_Config game_config)
 	return true;
 }
 
-void __draw(__window_data* windowData, GameData* gameData)
+void __draw(__window_data* windowData, Scene* scene)
 {
-	SDL_Color bgColor = gameData->scene.backgroundCol;
+	SDL_Color bgColor = scene->backgroundCol;
 	SDL_SetRenderDrawColor(windowData->renderer, bgColor.r, bgColor.g, bgColor.b, bgColor.a);
 	SDL_RenderClear(windowData->renderer);
 
-	gameData->scene.draw(windowData->renderer);
+	scene->draw(windowData->renderer);
 
 	SDL_RenderPresent(windowData->renderer);
 }
