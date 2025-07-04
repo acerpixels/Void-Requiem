@@ -2,7 +2,7 @@
 #include "definitions.h"
 #include "splashscreen.h"
 
-void configure_application(Game_Config *game_config)
+void configure_game(Game_Config *game_config)
 {
 	game_config->height = GAME_WINDOW_HEIGHT;
 	game_config->width  = GAME_WINDOW_WIDTH;
