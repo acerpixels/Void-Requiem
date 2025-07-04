@@ -18,7 +18,8 @@ SDL_AppResult SDL_AppInit(void **appstate, int argc, char *argv[])
 
 	if (!__init_windowData(&s_windowData, game_config))
 		return SDL_APP_FAILURE;
-	
+
+	game_config.initial_scene();	
 	SDL_assert(g_currentScene.init != NULL);
 	
 	return SDL_APP_CONTINUE;  /* carry on with the program! */
@@ -38,6 +39,7 @@ SDL_AppResult SDL_AppEvent(void *appstate, SDL_Event *event)
 /* This function runs once per frame, and is the heart of the program. */
 SDL_AppResult SDL_AppIterate(void *appstate)
 {
+	g_currentScene.update();
 	__draw(&s_windowData, &g_currentScene);
 	return SDL_APP_CONTINUE;  /* carry on with the program! */
 }
