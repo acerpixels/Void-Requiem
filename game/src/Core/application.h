@@ -1,15 +1,6 @@
 #pragma once
 #include <SDL3/SDL_render.h>
 
-typedef struct __game_config
-{
-	int width;
-	int height;
-	void (*initial_scene)();
-	char app_title[64];
-}
-Game_Config;
-
 typedef struct Scene
 {
 	SDL_Color backgroundCol;
@@ -27,5 +18,3 @@ typedef struct GameData
 	Scene scene;
 }
 GameData;
-
-void configure_game(Game_Config *game_config);
