@@ -1,6 +1,6 @@
 #include "window_manage.h"
 
-bool __init_windowData(__window_data* windowData, App_Config app_config)
+bool __init_windowData(__window_data* windowData, Game_Config game_config)
 {
 	if (!SDL_Init(SDL_INIT_VIDEO))
 	{
@@ -9,9 +9,9 @@ bool __init_windowData(__window_data* windowData, App_Config app_config)
 	}
 
 	if (!SDL_CreateWindowAndRenderer(
-				app_config.app_title,
-				app_config.width,
-				app_config.height,
+				game_config.app_title,
+				game_config.width,
+				game_config.height,
 				SDL_WINDOW_MAXIMIZED,
 				&windowData->window,
 				&windowData->renderer
