@@ -3,7 +3,6 @@
 
 #include "application.h"
 #include "window_manage.h"
-#include "../splashscreen.h"
 
 /* GLOBAL VARIABLE */
 GameData g_gameData;
@@ -14,13 +13,12 @@ static __window_data s_windowData;
 /* This function runs once at startup. */
 SDL_AppResult SDL_AppInit(void **appstate, int argc, char *argv[])
 {
-	App_Config app_config;
-	configure_application(&app_config);	
+	Game_Config game_config;
+	configure_game(&game_config);	
 
-	if (!__init_windowData(&s_windowData, app_config))
+	if (!__init_windowData(&s_windowData, game_config))
 		return SDL_APP_FAILURE;
 	
-	init_splashscreen();
 	SDL_assert(g_gameData.scene.init != NULL);
 	
 	return SDL_APP_CONTINUE;  /* carry on with the program! */
