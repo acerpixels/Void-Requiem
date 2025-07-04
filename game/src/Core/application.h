@@ -1,14 +1,14 @@
 #pragma once
 #include <SDL3/SDL_render.h>
 
-typedef struct __app_config
+typedef struct __game_config
 {
 	int width;
 	int height;
 	void (*initial_scene)();
 	char app_title[64];
 }
-App_Config;
+Game_Config;
 
 typedef struct Scene
 {
@@ -28,4 +28,4 @@ typedef struct GameData
 }
 GameData;
 
-void configure_application(App_Config *app_config);
+void configure_game(Game_Config *game_config);
