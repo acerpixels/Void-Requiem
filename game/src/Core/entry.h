@@ -1,6 +1,7 @@
 #define SDL_MAIN_USE_CALLBACKS 1  /* use the callbacks instead of main() */
 #include <SDL3/SDL_main.h>
 
+#include "application.h"
 #include "window_manage.h"
 #include "../splashscreen.h"
 
@@ -13,7 +14,10 @@ static __window_data s_windowData;
 /* This function runs once at startup. */
 SDL_AppResult SDL_AppInit(void **appstate, int argc, char *argv[])
 {
-	if (!__init_windowData(&s_windowData))
+	App_Config app_config;
+	configure_application(&app_config);	
+
+	if (!__init_windowData(&s_windowData, app_config))
 		return SDL_APP_FAILURE;
 	
 	init_splashscreen();
