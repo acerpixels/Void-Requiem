@@ -1,4 +1,5 @@
 #include "Core/entry.h"
+#include "definitions.h"
 #include "splashscreen.h"
 
 void configure_application(Game_Config *game_config)
