@@ -16,7 +16,7 @@ fi
 
 if [[ -d "build-windows" ]]; then
 	rm -rf "build-windows"
-	echo "LOG: build-linux directory has been removed"
+	echo "LOG: build-windows directory has been removed"
 fi
 
 echo -e " ---- CLEANING SUCCESSFUL ---- \n"
