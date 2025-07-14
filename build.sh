@@ -5,68 +5,49 @@
 # installed
 ##################################################
 
-# Script Parameters:
-PLATFORM_TYPE=$1
-BUILD_TYPE=$2
-BUILD_SYSTEM=$3
-GEN_ENABLED=$4 # for vim intellisense (OPTIONAL)
+w_flag=''
+n_flag=''
+y_flag=''
+r_flag=''
 
-if [[ -z "$PLATFORM_TYPE" || -z "$BUILD_TYPE" || -z "$BUILD_SYSTEM" ]]; then
-	PLATFORM_TYPE=LINUX
-	BUILD_TYPE=DEBUG
-	BUILD_SYSTEM=NINJA
+while getopts 'nrwy' flag; do
+	case "${flag}" in
+		r)
+			r_flag='true' ;;
+		n)
+			n_flag='true' ;;
+		w)
+			w_flag='true' ;;
+		y)
+			y_flag='true' ;;
+		*)
+			;;
+	esac
+done
+
+if [ ! -z ${r_flag} ]; then
+	CMAKE_BUILD_TYPE="-DCMAKE_BUILD_TYPE=Release"
+else
+	CMAKE_BUILD_TYPE="-DCMAKE_BUILD_TYPE=Debug"
 fi
 
-case "$BUILD_TYPE" in
-	RELEASE)
-		CMAKE_BUILD_TYPE="-DCMAKE_BUILD_TYPE=Release"
-		;;
-	DEBUG)
-		CMAKE_BUILD_TYPE="-DCMAKE_BUILD_TYPE=Debug"
-		;;
-	*)
-		echo "Error Occured: Unspecified build type" >&2
-		exit 1
-		;;
-esac
+if [ ! -z ${n_flag} ]; then
+	CMAKE_BUILD_SYSTEM="-G Ninja"
+	BUILD_SYSTEM_COMMAND=ninja
+else
+	BUILD_SYSTEM_COMMAND=make
+fi
 
-case "$BUILD_SYSTEM" in
-	NINJA)
-		CMAKE_BUILD_SYSTEM="-G Ninja"
-		BUILD_SYSTEM_COMMAND=ninja
-		;;
-	MAKEFILE)
-		BUILD_SYSTEM_COMMAND=make
-		;;
-	*)
-		echo "Error Occured: Unspecified build type" >&2
-		exit 1
-		;;
-esac
-
-case "$PLATFORM_TYPE" in
-	WINDOWS)
-		CMAKE_COMMAND=x86_64-w64-mingw32-cmake
-		BUILD_DIR="build-windows/"
-		;;
-	LINUX)
-		# Check if GEN_ENABLED is set to "y" 
-		if [ $GEN_ENABLED == "y" ]; then
-			# Check if bear command exists
-			if [ ! -x $(command -v "bear") ]; then
-				echo "Error Occured: bear command could not be found" >&2
-				exit 1
-			fi
-			BEAR_COMMAND="bear --"
-		fi
-		CMAKE_COMMAND=cmake
-		BUILD_DIR="build-linux/"
-		;;
-	*)
-		echo "Error Occured: Unspecified build type" >&2
-		exit 1
-		;;
-esac
+if [ ! -z ${w_flag} ]; then
+	CMAKE_COMMAND=x86_64-w64-mingw32-cmake
+	BUILD_DIR="build-windows/"
+else
+	if [ ! -z ${y_flag} ]; then
+		BEAR_COMMAND="bear --"
+	fi
+	CMAKE_COMMAND=cmake
+	BUILD_DIR="build-linux/"	
+fi
 
 ##################################################
 # Check if commands needed are existed and
